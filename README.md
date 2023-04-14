@@ -1,1 +1,1 @@
-# Test
+# Repositorio de estudio/exploración/práctica

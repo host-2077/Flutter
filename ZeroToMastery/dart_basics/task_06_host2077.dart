@@ -1,6 +1,7 @@
-// Hangman - Ahorcado.
+/* Hangman - Spanish Ver. 1.0
 
-/*
+Note: The code is in Spanish. 
+
 • Have a list of ten words
 • Choose a random word
 • Ask the user to enter a letter

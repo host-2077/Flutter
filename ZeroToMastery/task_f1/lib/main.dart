@@ -23,18 +23,19 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final carta1 = CartaDePreguntas();
-    carta1.categoria = "Deportes";
-    carta1.pregunta =
-        "¿Cúal es uno de los deportes olímpicos más nuevos que existen?";
+    final carta1 = CartaDePreguntas(
+      categoria: "Sports",
+      pregunta: "¿What is one of the newest Olympic sports that exist?",
+    );
+    final carta2 = CartaDePreguntas(
+      categoria: "Comics",
+      pregunta: "¿Who is a latinamerican DC villain?",
+    );
 
-    final carta2 = CartaDePreguntas();
-    carta2.categoria = "Peliculas";
-    carta2.pregunta = "¿Cómo se llama un villano latinoamericano?";
-
-    final carta3 = CartaDePreguntas();
-    carta3.categoria = "Tecnología";
-    carta3.pregunta = "¿Cual es el mejor lenguaje para crear apps?";
+    final carta3 = CartaDePreguntas(
+      categoria: "Tech",
+      pregunta: "¿What is the best programming langauge to create apps?",
+    );
 
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -133,6 +134,8 @@ class Home extends StatelessWidget {
 }
 
 class CartaDePreguntas {
-  late String categoria;
-  late String pregunta;
+  String categoria;
+  String pregunta;
+
+  CartaDePreguntas({required this.categoria, required this.pregunta});
 }

@@ -21,9 +21,11 @@ class _AddQuestionWidgetState extends State<AddQuestionWidget> {
     return FloatingActionButton(
       onPressed: () {
         final newCard = CartaDePreguntas(
-          categoria: 'New Category',
-          pregunta: 'New Question',
-          respuesta: 'New Answer',
+          title: "new title",
+          hint1: "New Hint1",
+          hint2: "New Hint2",
+          question: "New Question",
+          solution: "New Solution",
         );
         widget.addCardToList(newCard);
       },

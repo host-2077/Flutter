@@ -1,12 +1,13 @@
 import "dart:io";
+import "dart:math";
 
 void main() {
-  int randomNumber = 9;
+  int randomNumber = Random().nextInt(10);
   int attempts = 0;
 
   while (true) {
     print("Guess the number");
-    int userInput = int.parse(stdin.readLineSync() ?? "");
+    final int userInput = int.parse(stdin.readLineSync() ?? "");
 
     attempts++;
     if (userInput == randomNumber) {

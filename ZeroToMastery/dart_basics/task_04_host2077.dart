@@ -3,12 +3,12 @@ import 'dart:math';
 
 void main() {
   Random random = new Random();
-  int randomNumber = random.nextInt(10) + 1;
+  final int randomNumber = random.nextInt(10) + 1;
   int attempts = 0;
 
   while (true) {
     print("Guess the number");
-    int userInput = int.parse(stdin.readLineSync() ?? "");
+    final int userInput = int.parse(stdin.readLineSync() ?? "");
 
     attempts++;
     if (userInput == randomNumber) {

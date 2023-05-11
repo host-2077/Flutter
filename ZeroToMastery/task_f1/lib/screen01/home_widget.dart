@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'home_widgets/add_question.dart';
+import 'package:task_f1/screen02/question_screen.dart';
+import 'package:task_f1/screen03/random_screen.dart';
 import 'home_widgets/first_column.dart';
 import 'home_widgets/questions_card.dart';
 
@@ -13,22 +14,26 @@ class HomeWidget extends StatefulWidget {
 class _HomeWidgetState extends State<HomeWidget> {
   final List<CartaDePreguntas> cards = [
     CartaDePreguntas(
-      categoria: "Sports",
-      pregunta: "What is one of the newest Olympic sports that exist?",
-      respuesta: "Skateboarding",
+      title: "Question 1: Category > > Sports",
+      hint1: "Started in > > California, USA",
+      hint2: "4 Wheels",
+      question: "What is one of the newest Olympic sports that exist?",
+      solution: "Skateboarding",
     ),
     CartaDePreguntas(
-      categoria: "Comics",
-      pregunta: "What's the name of a latinamerican DC villain?",
-      respuesta: "Diablo",
+      title: "Question 2: Category > > Comics",
+      hint1: "Real Name > > Chato Santana",
+      hint2: "Power > > Fire",
+      question: "What's the name of a latinamerican DC villain?",
+      solution: "Diablo",
     ),
   ];
 
-  void addCardToList(CartaDePreguntas card) {
+  /* void addCardToList(CartaDePreguntas card) {
     setState(() {
       cards.add(card);
     });
-  }
+  } */
 
   @override
   Widget build(BuildContext context) {
@@ -40,9 +45,16 @@ class _HomeWidgetState extends State<HomeWidget> {
     final cardList = cards.map((card) {
       return GestureDetector(
         onTap: () {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(card.respuesta),
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => QuestionScreen(
+                title: card.title,
+                hint1: card.hint1,
+                hint2: card.hint2,
+                question: card.question,
+                solution: card.solution,
+              ),
             ),
           );
         },
@@ -54,11 +66,7 @@ class _HomeWidgetState extends State<HomeWidget> {
           child: Column(
             children: [
               Text(
-                card.categoria,
-                textAlign: TextAlign.center,
-              ),
-              Text(
-                card.pregunta,
+                card.title,
                 textAlign: TextAlign.center,
               ),
             ],
@@ -71,27 +79,38 @@ class _HomeWidgetState extends State<HomeWidget> {
         ? Column(
             children: cardList,
           )
-        : SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: cardList,
-            ),
+        : ListView(
+            children: [
+              Row(
+                children: cardList,
+              ),
+            ],
           );
 
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       appBar: AppBar(
-        title: const Text("Trivia App 1.1"),
+        title: const Text("Trivia App 1.2"),
       ),
       body: Center(
-        child: SingleChildScrollView(
+        child: ListView(
           physics: const BouncingScrollPhysics(),
-          child: FirstColumn(cardListWidget: cardListWidget),
+          children: [
+            FirstColumn(
+              cardListWidget: cardListWidget,
+            )
+          ],
         ),
       ),
-      floatingActionButton: AddQuestionWidget(
-        addCardToList: addCardToList,
-        cardList: cards,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const RandomScreen(),
+            ),
+          );
+        },
       ),
     );
   }

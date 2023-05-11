@@ -6,6 +6,6 @@ import "dart:io";
 
 void main() {
   print("Type something and press enter:");
-  String userInput = stdin.readLineSync() ?? "";
+  String? userInput = stdin.readLineSync();
   print("The something that you entered is: $userInput");
 }

@@ -2,9 +2,10 @@ import "dart:io";
 
 void main() {
   print("Enter a number");
-  var userInput = stdin.readLineSync();
-  if (int.tryParse(userInput ?? "") != null) {
-    var parsedInput = int.parse(userInput!);
+  String userInput = stdin.readLineSync() ?? '';
+  int? parsedInput = int.tryParse(userInput);
+  if (parsedInput != null) {
+    var parsedInput = int.parse(userInput);
     print(
         parsedInput.runtimeType); // I add this to verify if it is an actual int
     int factorial = 1;

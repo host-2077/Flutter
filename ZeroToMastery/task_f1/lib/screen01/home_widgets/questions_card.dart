@@ -1,11 +1,15 @@
 class CartaDePreguntas {
-  String categoria;
-  String pregunta;
-  String respuesta;
+  String title;
+  String hint1;
+  String hint2;
+  String question;
+  String solution;
 
   CartaDePreguntas({
-    required this.categoria,
-    required this.pregunta,
-    required this.respuesta,
+    required this.title,
+    required this.hint1,
+    required this.hint2,
+    required this.question,
+    required this.solution,
   });
 }

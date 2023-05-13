@@ -29,6 +29,7 @@ class _HomeWidgetState extends State<HomeWidget> {
     ),
   ];
 
+  // This function adds a new card to the list in real time
   /* void addCardToList(CartaDePreguntas card) {
     setState(() {
       cards.add(card);

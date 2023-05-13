@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_f1/screen01/home_widget.dart';
+import '../screen01/home_widget.dart';
 
 class QuestionScreen extends StatelessWidget {
   const QuestionScreen({

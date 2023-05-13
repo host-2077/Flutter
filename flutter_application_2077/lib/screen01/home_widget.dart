@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:task_f1/screen02/question_screen.dart';
-import 'package:task_f1/screen03/random_screen.dart';
+import '../screen02/question_screen.dart';
+import '../screen03/random_screen.dart';
 import 'home_widgets/first_column.dart';
 import 'home_widgets/questions_card.dart';
 

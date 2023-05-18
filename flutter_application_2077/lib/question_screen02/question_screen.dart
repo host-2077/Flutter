@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../screen01/home_widget.dart';
+
+import '../components/rootnavigationbar.dart';
 
 class QuestionScreen extends StatelessWidget {
   const QuestionScreen({
@@ -90,7 +91,7 @@ class QuestionScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const HomeWidget(),
+                    builder: (context) => const RootNavigationBar(),
                   ),
                 );
               },

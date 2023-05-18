@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import '../screen01/home_widget.dart';
+import 'package:flutter_application_2077/components/questions.dart';
+import 'widgets/question_form_widget.dart';
 
-class RandomScreen extends StatelessWidget {
-  const RandomScreen({super.key});
+class AddQuestionScreen extends StatelessWidget {
+  const AddQuestionScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,22 +21,13 @@ class RandomScreen extends StatelessWidget {
               margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 5),
               color: Colors.tealAccent,
               child: const Text(
-                'This is a random page:',
+                'Create your own question:',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),
+            const QuestionForm(),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const HomeWidget(),
-            ),
-          );
-        },
       ),
     );
   }

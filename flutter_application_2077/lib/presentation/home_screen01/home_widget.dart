@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../components/questions.dart';
+import '../../components/questions.dart';
 import '../question_screen02/question_screen.dart';
 
 class HomeWidget extends StatefulWidget {
@@ -38,7 +38,7 @@ class _HomeWidgetState extends State<HomeWidget> {
             child: Container(
               padding: const EdgeInsets.all(20.0),
               margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 5),
-              color: Colors.tealAccent,
+              color: Theme.of(context).colorScheme.primaryContainer,
               child: Column(
                 children: [
                   Text(

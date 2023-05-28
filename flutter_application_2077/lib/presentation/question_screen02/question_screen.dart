@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../components/rootnavigationbar.dart';
+import '../../components/rootnavigationbar.dart';
 
 class QuestionScreen extends StatelessWidget {
   const QuestionScreen({
@@ -29,7 +29,7 @@ class QuestionScreen extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(20.0),
               margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 5),
-              color: Colors.tealAccent,
+              color: Theme.of(context).colorScheme.primaryContainer,
               child: const Text(
                 'Question:',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -42,7 +42,7 @@ class QuestionScreen extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(20.0),
               margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-              color: Colors.tealAccent,
+              color: Theme.of(context).colorScheme.primaryContainer,
               child: const Text(
                 'Hints:',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),

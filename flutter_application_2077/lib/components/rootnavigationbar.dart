@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../home_screen01/home_widget.dart';
-import '../add_question_screen03/add_question_screen.dart';
+import '../presentation/home_screen01/home_widget.dart';
+import '../presentation/add_question_screen03/add_question_screen.dart';
 
 class RootNavigationBar extends StatefulWidget {
   const RootNavigationBar({Key? key}) : super(key: key);
@@ -33,7 +33,7 @@ class _RootNavigationBarState extends State<RootNavigationBar> {
             });
           },
           currentIndex: _currentIndex,
-          selectedItemColor: Colors.teal,
+          selectedItemColor: Theme.of(context).colorScheme.primaryContainer,
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.question_mark),

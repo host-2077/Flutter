@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2077/components/questions.dart';
-import 'widgets/question_form_widget.dart';
+import 'question_form_widget.dart';
 
 class AddQuestionScreen extends StatelessWidget {
   const AddQuestionScreen({super.key});
@@ -19,7 +18,7 @@ class AddQuestionScreen extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(20.0),
               margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 5),
-              color: Colors.tealAccent,
+              color: Theme.of(context).colorScheme.primaryContainer,
               child: const Text(
                 'Create your own question:',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),

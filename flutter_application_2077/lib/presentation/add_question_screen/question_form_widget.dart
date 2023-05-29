@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2077/components/rootnavigationbar.dart';
-import '../../components/questions.dart';
+import '../all_questions_screen/questions.dart';
 
 class QuestionForm extends StatefulWidget {
   const QuestionForm({super.key});

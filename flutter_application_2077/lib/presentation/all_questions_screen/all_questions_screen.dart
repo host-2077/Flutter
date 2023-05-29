@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../components/questions.dart';
-import '../question_screen02/question_screen.dart';
+import 'questions.dart';
+import '../question_screen/question_screen.dart';
 
 class HomeWidget extends StatefulWidget {
   const HomeWidget({Key? key}) : super(key: key);

@@ -8,12 +8,10 @@ class AppTheme {
   static const _primaryColorDark = Colors.black;
 
   static final ThemeData lightTheme = ThemeData(
-    useMaterial3: true,
-    colorScheme: ColorScheme.fromSeed(
-      seedColor: AppTheme._primaryColorLight,
-      brightness: Brightness.light,
-    ),
-  );
+      useMaterial3: true,
+      colorScheme: ColorScheme.fromSeed(
+          seedColor: AppTheme._primaryColorLight,
+          brightness: Brightness.light));
 
   static final ThemeData darkTheme = ThemeData(
     useMaterial3: true,

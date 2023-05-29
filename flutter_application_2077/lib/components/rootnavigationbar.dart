@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import '../presentation/home_screen01/home_widget.dart';
-import '../presentation/add_question_screen03/add_question_screen.dart';
+import 'package:flutter_application_2077/components/theme_service.dart';
+import 'package:provider/provider.dart';
+import '../presentation/all_questions_screen/all_questions_screen.dart';
+import '../presentation/add_question_screen/add_question_screen.dart';
 
 class RootNavigationBar extends StatefulWidget {
   const RootNavigationBar({Key? key}) : super(key: key);
@@ -33,7 +35,6 @@ class _RootNavigationBarState extends State<RootNavigationBar> {
             });
           },
           currentIndex: _currentIndex,
-          selectedItemColor: Theme.of(context).colorScheme.primaryContainer,
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.question_mark),
@@ -44,6 +45,12 @@ class _RootNavigationBarState extends State<RootNavigationBar> {
               label: "Create a question",
             ),
           ],
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Provider.of<ThemeService>(context, listen: false).toggleTheme();
+          },
+          child: const Icon(Icons.add),
         ),
       );
     } else {
@@ -80,6 +87,12 @@ class _RootNavigationBarState extends State<RootNavigationBar> {
               ),
             ),
           ],
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Provider.of<ThemeService>(context, listen: false).toggleTheme();
+          },
+          child: const Icon(Icons.add),
         ),
       );
     }

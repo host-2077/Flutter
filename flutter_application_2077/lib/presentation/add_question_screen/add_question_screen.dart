@@ -18,7 +18,6 @@ class AddQuestionScreen extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(20.0),
               margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 5),
-              color: Theme.of(context).colorScheme.primaryContainer,
               child: const Text(
                 'Create your own question:',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),

@@ -29,7 +29,7 @@ class QuestionScreen extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(20.0),
               margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 5),
-              color: Theme.of(context).colorScheme.primaryContainer,
+              color: Colors.amberAccent,
               child: const Text(
                 'Question:',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -42,7 +42,7 @@ class QuestionScreen extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(20.0),
               margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-              color: Theme.of(context).colorScheme.primaryContainer,
+              color: Colors.amberAccent,
               child: const Text(
                 'Hints:',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),

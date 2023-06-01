@@ -16,16 +16,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<ThemeService>(
-      builder: (context, themeService, child) {
-        return MaterialApp(
-          themeMode:
-              themeService.isDarkModeOn ? ThemeMode.dark : ThemeMode.light,
-          theme: AppTheme.lightTheme,
-          darkTheme: AppTheme.darkTheme,
-          home: const RootNavigationBar(),
-        );
-      },
-    );
+    return Consumer<ThemeService>(builder: (context, themeService, child) {
+      return MaterialApp(
+        theme: AppTheme.lightTheme,
+        darkTheme: AppTheme.darkTheme,
+        themeMode: themeService.isDarkModeOn ? ThemeMode.dark : ThemeMode.light,
+        home: const RootNavigationBar(),
+      );
+    });
   }
 }

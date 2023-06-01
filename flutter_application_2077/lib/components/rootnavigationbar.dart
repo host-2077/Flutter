@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2077/components/theme_service.dart';
+import 'package:flutter_application_2077/presentation/change_theme_screen/change_theme_screen.dart';
 import 'package:provider/provider.dart';
 import '../presentation/all_questions_screen/all_questions_screen.dart';
 import '../presentation/add_question_screen/add_question_screen.dart';
@@ -26,6 +27,7 @@ class _RootNavigationBarState extends State<RootNavigationBar> {
           children: const [
             HomeWidget(),
             AddQuestionScreen(),
+            ChangeThemeScreen(),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
@@ -44,13 +46,15 @@ class _RootNavigationBarState extends State<RootNavigationBar> {
               icon: Icon(Icons.add),
               label: "Create a question",
             ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.add_reaction_sharp), label: "Surprise me!"),
           ],
         ),
         floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.add),
           onPressed: () {
             Provider.of<ThemeService>(context, listen: false).toggleTheme();
           },
-          child: const Icon(Icons.add),
         ),
       );
     } else {
@@ -89,10 +93,10 @@ class _RootNavigationBarState extends State<RootNavigationBar> {
           ],
         ),
         floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.add),
           onPressed: () {
             Provider.of<ThemeService>(context, listen: false).toggleTheme();
           },
-          child: const Icon(Icons.add),
         ),
       );
     }

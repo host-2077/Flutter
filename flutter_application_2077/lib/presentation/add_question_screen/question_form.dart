@@ -15,6 +15,7 @@ class _QuestionFormState extends State<QuestionForm> {
   final TextEditingController hint2Controller = TextEditingController();
   final TextEditingController questionController = TextEditingController();
   final TextEditingController solutionController = TextEditingController();
+  final SizedBox sizedBoxSpacer = const SizedBox(height: 70);
 
   void addCardToList() {
     final String title = titleController.text;
@@ -102,19 +103,22 @@ class _QuestionFormState extends State<QuestionForm> {
               return null;
             },
           ),
-          ElevatedButton(
-            onPressed: () {
-              if (_formKey.currentState!.validate()) {
-                addCardToList();
-                Navigator.pushAndRemoveUntil(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const RootNavigationBar()),
-                  (route) => false,
-                );
-              }
-            },
-            child: const Text("Create my question!"),
+          sizedBoxSpacer,
+          Center(
+            child: ElevatedButton(
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                  addCardToList();
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const RootNavigationBar()),
+                    (route) => false,
+                  );
+                }
+              },
+              child: const Text("Create my question!"),
+            ),
           )
         ],
       ),

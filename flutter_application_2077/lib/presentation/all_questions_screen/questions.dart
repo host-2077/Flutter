@@ -29,7 +29,7 @@ final List<Cards> questionlist = [
       hint2: "Real name > > Chato Santana"),
   Cards(
       title: "Tech",
-      question: "What is the best programming langauge to create apps?",
+      question: "What is the best programming language to create apps?",
       solution: "Flutter",
       hint1: "Power > > Multiplatform",
       hint2: "Developed by Google"),

@@ -2,19 +2,20 @@ import 'package:flutter/material.dart';
 import 'questions.dart';
 import '../question_screen/question_screen.dart';
 
-class HomeWidget extends StatefulWidget {
-  const HomeWidget({Key? key}) : super(key: key);
+class AllQuestionsScreen extends StatefulWidget {
+  const AllQuestionsScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomeWidget> createState() => _HomeWidgetState();
+  State<AllQuestionsScreen> createState() => _HomeWidgetState();
 }
 
-class _HomeWidgetState extends State<HomeWidget> {
+class _HomeWidgetState extends State<AllQuestionsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Trivia App 1.3"),
+        automaticallyImplyLeading: false, // hides back button in the appbar.
+        title: const Text("Trivia App 1.4"),
       ),
       body: ListView.builder(
         itemCount: questionlist.length,

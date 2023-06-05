@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2077/components/theme_service.dart';
+import 'package:provider/provider.dart';
 
 import '../../components/rootnavigationbar.dart';
 
-class QuestionScreen extends StatelessWidget {
+class QuestionScreen extends StatefulWidget {
   const QuestionScreen({
     Key? key,
     required this.title,
@@ -19,85 +21,164 @@ class QuestionScreen extends StatelessWidget {
   final String solution;
 
   @override
+  State<QuestionScreen> createState() => _QuestionScreenState();
+}
+
+class _QuestionScreenState extends State<QuestionScreen>
+    with SingleTickerProviderStateMixin {
+  final SizedBox sizedBoxSpacer = const SizedBox(height: 16);
+  late AnimationController _controller;
+  late Animation<double> _animation;
+  late IconData _icon;
+  bool _hint1Pressed = false;
+  bool _hint2Pressed = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 1),
+    )..repeat(reverse: true);
+    _animation = Tween<double>(begin: 0.0, end: 1.0).animate(_controller);
+    _icon = Icons.lightbulb;
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _showAnswer() {
+    setState(() {
+      _icon = Icons.check_circle_outline;
+    });
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(widget.solution),
+      ),
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            const SizedBox(height: 16),
-            Container(
-              padding: const EdgeInsets.all(20.0),
-              margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 5),
-              color: Colors.amberAccent,
-              child: const Text(
-                'Question:',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          sizedBoxSpacer,
+          Stack(
+            children: [
+              AnimatedBuilder(
+                animation: _animation,
+                builder: (BuildContext context, Widget? child) {
+                  return Container(
+                    padding: const EdgeInsets.all(90.0),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.limeAccent.withOpacity(_animation.value),
+                    ),
+                  );
+                },
               ),
-            ),
-            Text(
-              question,
+              Center(
+                child: Container(
+                  padding: const EdgeInsets.all(45.0),
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 20, horizontal: 5),
+                  child: Icon(
+                    _icon,
+                    color: Colors.deepPurpleAccent,
+                    size: 50.0,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Center(
+            child: Text(
+              widget.question,
+              textAlign: TextAlign.center,
               style: const TextStyle(fontSize: 16),
             ),
-            Container(
-              padding: const EdgeInsets.all(20.0),
-              margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-              color: Colors.amberAccent,
-              child: const Text(
-                'Hints:',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  const Spacer(),
-                  IconButton(
-                      onPressed: () =>
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(hint1),
-                            ),
-                          ),
-                      icon: const Icon(
-                          color: Colors.orangeAccent, Icons.lightbulb)),
-                  const Spacer(),
-                  IconButton(
-                      onPressed: () =>
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(hint2),
-                            ),
-                          ),
-                      icon: const Icon(
-                          color: Colors.orangeAccent, Icons.lightbulb)),
-                  const Spacer(),
-                ],
-              ),
-            ),
-            OutlinedButton(
-              onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(solution),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                const Spacer(),
+                IconButton(
+                  onPressed: () {
+                    setState(() {
+                      _hint1Pressed = true;
+                    });
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(widget.hint1),
+                      ),
+                    );
+                  },
+                  icon: Icon(
+                    Icons.live_help,
+                    color: _hint1Pressed
+                        ? Colors.limeAccent
+                        : Colors.deepPurpleAccent,
                   ),
-                );
-              },
-              child: const Text("Show me the answer"),
-            ),
-            OutlinedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const RootNavigationBar(),
+                ),
+                const Spacer(),
+                IconButton(
+                  onPressed: () {
+                    setState(() {
+                      _hint2Pressed = true;
+                    });
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(widget.hint2),
+                      ),
+                    );
+                  },
+                  icon: Icon(
+                    Icons.live_help,
+                    color: _hint2Pressed
+                        ? Colors.limeAccent
+                        : Colors.deepPurpleAccent,
                   ),
-                );
-              },
-              child: const Text("More questions please!"),
+                ),
+                const Spacer(),
+              ],
             ),
-            const SizedBox(height: 16),
+          ),
+          OutlinedButton(
+            onPressed: () {
+              _showAnswer();
+            },
+            child: const Text("Show me the answer"),
+          ),
+          OutlinedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const RootNavigationBar(),
+                ),
+              );
+            },
+            child: const Text("More questions please!"),
+          ),
+          sizedBoxSpacer,
+        ],
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+              onPressed: () {
+                Provider.of<ThemeService>(context, listen: false).toggleTheme();
+              },
+              icon: const Icon(Icons.add_reaction_outlined),
+            ),
           ],
         ),
       ),

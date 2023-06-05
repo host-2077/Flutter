@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 class AppTheme {
   AppTheme._();
 
-  static const _primaryColorLight = Colors.lime;
+  static const _primaryColorLight = Colors.greenAccent;
 
-  static const _primaryColorDark = Colors.black;
+  static const _primaryColorDark = Colors.deepPurpleAccent;
 
   static final ThemeData lightTheme = ThemeData(
       useMaterial3: true,

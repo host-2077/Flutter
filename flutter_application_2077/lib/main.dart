@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2077/components/rootnavigationbar.dart';
-import 'package:flutter_application_2077/components/theme.dart';
-import 'package:flutter_application_2077/components/theme_service.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -21,7 +18,7 @@ class MyApp extends StatelessWidget {
         theme: AppTheme.lightTheme,
         darkTheme: AppTheme.darkTheme,
         themeMode: themeService.isDarkModeOn ? ThemeMode.dark : ThemeMode.light,
-        home: const RootNavigationBar(),
+        home: const Placeholder(),
       );
     });
   }
